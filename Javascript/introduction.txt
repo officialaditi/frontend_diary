@@ -1,0 +1,48 @@
+
+📌  synchronous:-
+
+>> JavaScript is synchronous by default, meaning it executes code line by line in the order 
+   it appears in the program. If one line of code is executing, the next line will not run 
+   until the previous one is finished. This is known as blocking execution.
+
+example:- 
+console.log("First");
+console.log("Second");
+console.log("Third");
+
+This will output:
+First
+Second
+Third
+
+However, JavaScript can also handle asynchronous operations, like network requests, timers, 
+and event handling, without blocking the rest of the code. This is where concepts like 
+callbacks, promises, and async/await come into play.
+
+📌  asynchronous:- 
+
+>> Asynchronous programming in JavaScript means that certain operations, like fetching data 
+   from a server, reading files, or waiting for a timer, don't block the rest of the code from 
+   executing while they are happening. Instead of waiting for these operations to finish before 
+   moving on to the next line of code, JavaScript continues executing other tasks, and once the 
+   asynchronous operation is completed, it "notifies" JavaScript to handle the result.
+
+>> Why Use Asynchronous Code?
+    -> Efficiency: It allows your program to handle other tasks while waiting for long-running 
+   operations (e.g., network requests, file I/O).
+    -> Avoid Freezing the Application: Without async behavior, your application might freeze 
+   (or become unresponsive) while it waits for tasks like fetching data.
+  
+📌 Key Points of Asynchronous Programming:
+
+🔰 Non-blocking: Asynchronous operations allow other code to run while waiting for an 
+   operation to finish.
+
+🔰 Callback functions: Asynchronous tasks often rely on callback functions that are called 
+   once the operation is complete.
+
+🔰 Promises: A more modern approach to handle asynchronous operations that can either resolve 
+   (successful) or reject (failure) a task.
+
+🔰 Async/Await: A syntax introduced in ES8 to make working with Promises easier and more 
+   readable  

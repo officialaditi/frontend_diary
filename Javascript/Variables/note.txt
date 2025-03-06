@@ -1,0 +1,40 @@
+                                       Variable:-
+
+>> Variable are container for storing data
+
+--> they are 3 way to declare an Variable
+    1) var 
+    2) let
+    3) const
+
+📌 var :- (function, hoisted, can be reassigned);
+
+-> scope:- function-scope means its accessible within the function where its declare
+
+-> hoisting:- get hoisted to the top of the scope but initialized as [undefined];
+
+-> reassignment:- can be reassigned and update.
+
+-> redeclaration:- allowed within the same scoope
+
+📌 let:- (block-scope, hoisted but not initialized, can be reassigned)
+
+-> scope:- block-scoped but only limited with the curly brace {}, where they have declare;
+
+-> hoisting:- hoisted but not initialized (cannot be accessed before declaration);
+
+-> reassignment:- can be reassigned and updated.
+
+-> redeclaration:- not allowed in the same scoped
+
+📌 const (Block-scoped, Hoisted but Not Initialized, Cannot be Reassigned)
+
+-> Scope: Block-scoped.
+
+-> Hoisting: Hoisted but not initialized.
+
+-> Reassignment: Not allowed (constant value cannot be changed).
+
+-> Redeclaration: Not allowed in the same scope.
+
+-> Objects and Arrays: The reference cannot be changed, but the contents can be modified.

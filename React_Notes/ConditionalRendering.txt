@@ -1,0 +1,50 @@
+                                             Conditional Rendering
+
+                        
+What is Conditional Rendering in React?
+
+>> Conditional rendering in React allows you to control what gets displayed in the UI based on certain conditions, 
+   just like using if-else statements in JavaScript
+
+>> Instead of always rendering everything, React dynamically decides which components or elements should be shown 
+   based on the application's state or props.  
+
+Ways to Perform Conditional Rendering in React:-
+
+There are multiple ways to implement conditional rendering in React:
+
+1. Using if Statements (Traditional Approach)
+You can use a simple if statement inside a function to decide what to render.
+example:- 
+function Greeting({ isLoggedIn }) {
+  if (isLoggedIn) {
+    return <h1>Welcome back!</h1>;
+  }
+  return <h1>Please sign in.</h1>;
+}
+
+2. Using Ternary Operator (? :)
+A shorter way to write conditional rendering inside JSX is by using the ternary (? :) operator.
+example:- 
+function Greeting({ isLoggedIn }) {
+  return isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign in.</h1>;
+}
+
+3. Using Logical && Operator (Short-Circuit Evaluation)
+If you only need to render something when a condition is true, you can use the && operator
+example:- 
+function Notification({ hasNewMessage }) {
+  return (
+    <div>
+      <h1>Dashboard</h1>
+      {hasNewMessage && <p>You have new messages!</p>}
+    </div>
+  );
+}
+If hasNewMessage is true, the <p> tag will be rendered; otherwise, nothing is shown.
+
+Best Practices for Conditional Rendering
+1) Use ternary operators (? :) for simple conditions to keep the JSX concise.
+2) Use && for rendering something only when a condition is true, but avoid using it with values like 0 or false, as they might unintentionally appear in the UI.
+3) For multiple conditions, use if or switch statements outside of JSX to improve readability.
+4) Keep the UI logic separate from business logic to maintain clean and maintainable components

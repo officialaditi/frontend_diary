@@ -1,0 +1,53 @@
+                            Temporal Dead Zone (TDZ) in JavaScript
+
+📌 Definition
+The 'Temporal Dead Zone (TDZ)' is the period between a variable's declaration and its initialization, during which accessing the variable results in a **ReferenceError**. This applies to variables declared using `let` and `const`.
+
+📌 Key Characteristics
+1. Hoisting Behavior:
+   - `let` and `const` variables are hoisted but remain **uninitialized** until the execution reaches their definition.
+   - `var` is hoisted and initialized with `undefined`, so it does not have a TDZ.
+
+2. Accessing a Variable in TDZ Causes an Error
+   ```javascript
+   console.log(name); // ❌ ReferenceError: Cannot access 'name' before initialization
+   let name = "Alice";
+   console.log(name); // ✅ "Alice"
+   ```
+
+3. TDZ in Function & Block Scope:
+   ```javascript
+   function example() {
+     console.log(x); // ❌ ReferenceError
+     let x = 5;
+   }
+   example();
+   ```
+   ```javascript
+   {
+     console.log(y); // ❌ ReferenceError
+     let y = 30;
+   }
+   ```
+
+4. TDZ with `typeof` Operator:
+   ```javascript
+   console.log(typeof age); // ❌ ReferenceError
+   let age = 25;
+   ```
+   - Normally, `typeof` on an undeclared variable returns `"undefined"`, but inside a TDZ, it throws an error.
+
+📌 **Comparison of `var`, `let`, and `const`**
+
+| Keyword  | Hoisted?  | Default Initialization | TDZ Present? |
+|----------|---------  |------------------------|--------------|
+| `var`    | ✅ Yes   | `undefined`             | ❌ No        |
+| `let`    | ✅ Yes   | ❌ Uninitialized       | ✅ Yes       |
+| `const`  | ✅ Yes   | ❌ Uninitialized       | ✅ Yes       |
+
+📌 **Key Takeaways**
+- TDZ starts from the declaration and ends at initialization.
+- Only `let` and `const` have a TDZ, not `var`.
+- Accessing variables in the TDZ results in a `ReferenceError`.
+- Avoid accessing variables before their initialization to prevent errors.
+

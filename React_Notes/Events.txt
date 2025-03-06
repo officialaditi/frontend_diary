@@ -1,0 +1,66 @@
+                                   Events:-
+
+>> React uses Synthetic Events, which are wrappers around the browser’s native events. 
+>> These synthetic events provide consistent behavior across different browsers and improve performance by using event delegation.
+
+📌Handling Events in React:-
+
+To handle an event in React:
+1) Define a function to handle the event.
+2) Attach the function to an event listener in JSX.
+
+Example: Handling a Button Click
+function App() {
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+✅ Key Differences from Vanilla JS:
+>> Event names use camelCase (onClick instead of onclick).
+>> You pass a function reference, not a string or function call (onClick={handleClick} instead of onClick="handleClick()").
+
+Common Event Types in React:-
+
+Event Type	               Example Usage
+
+Click Events	           onClick
+Form Events	               onSubmit, onChange, onInput
+Keyboard Events	           onKeyDown, onKeyPress, onKeyUp
+Mouse Events	           onMouseEnter, onMouseLeave, onMouseMove
+Focus Events	           onFocus, onBlur
+
+📌 Passing Arguments in Event Handlers
+If you need to pass arguments, use an arrow function inside JSX:
+example:-
+function App() {
+  function handleClick(name) {
+    alert(`Hello, ${name}!`);
+  }
+
+  return <button onClick={() => handleClick("John")}>Greet</button>;
+}
+❌ Avoid calling the function directly like onClick={handleClick("John")}, as it will execute immediately instead of waiting for a click.
+
+📌 Prevent Default Behavior:-
+For example, preventing a form from reloading the page:
+example:-
+function App() {
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log("Form submitted!");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+Best Practices:-
+✅ Use arrow functions to avoid unnecessary bindings.
+✅ Use event delegation for list elements to optimize performance.
+✅ Always prevent default behavior when handling forms.
+✅ Pass arguments properly using arrow functions inside JSX.

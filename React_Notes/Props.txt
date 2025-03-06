@@ -1,0 +1,163 @@
+                                  All about Props:-
+                                  
+1) What Are Props?     
+--> Props (short for properties) are used to pass data from a parent component to a child component in React. 
+--> They make components dynamic and reusable.  
+Key Characteristics of Props
+✅ Props are read-only (immutable).
+✅ Props allow component reusability.
+✅ Props are passed as an object.
+✅ Props flow from parent to child (unidirectional data flow).
+
+2) How to Use Props in Functional Components.
+--> You pass props as attributes when using a component and access them inside the function.
+Example: Passing and Using Props
+function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+function App() {
+  return <Welcome name="Alice" />;
+}
+Output: Hello, Alice!
+
+Explanation:
+
+name="Alice" is passed as a prop.
+props.name is used to access the value inside the component.
+
+3) How to Use Props in Class Components (Old Approach)
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+
+function App() {
+  return <Welcome name="Bob" />;
+}
+
+4) Default Props (Setting Default Values)
+If a prop is not provided, you can set a default value using defaultProps.
+example:- 
+function Greeting(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+Greeting.defaultProps = {
+  name: "Guest"
+};
+
+function App() {
+  return <Greeting />;  // No 'name' prop passed
+}      
+Output: Hello, Guest!
+
+📌 Tip: Instead of defaultProps, you can also use destructuring with default values inside the function:
+function Greeting({ name = "Guest" }) {
+  return <h1>Hello, {name}!</h1>;
+}
+
+5) Props Destructuring.
+Instead of using props.name, you can destructure props inside the function parameter.
+function UserProfile({ name, age }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+function App() {
+  return <UserProfile name="Alice" age={25} />;
+}
+
+=> This improves readability and avoids repeating props. multiple times.
+
+6) Passing Multiple Props
+Props can hold multiple values, including strings, numbers, booleans, arrays, objects, and functions.
+example:- 
+function UserProfile({ name, age, hobbies }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+      <p>Hobbies: {hobbies.join(", ")}</p>
+    </div>
+  );
+}
+
+function App() {
+  return <UserProfile name="John" age={30} hobbies={["Reading", "Gaming", "Cooking"]} />;
+}
+Output:- 
+John
+Age: 30
+Hobbies: Reading, Gaming, Cooking
+
+7) Passing Props as Objects (Spread Operator ...)
+Instead of passing props one by one, you can use the spread operator (...) to pass all properties of an object.
+const user = { name: "Alice", age: 25 };
+example:-  
+function UserProfile({ name, age }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+function App() {
+  return <UserProfile {...user} />;
+}
+
+This is useful when dealing with large objects.
+
+8) Passing Functions as Props (Callback Props)
+Props can also be functions, allowing child components to communicate with parent components.
+Example: Child to Parent Communication:
+
+function Button({ handleClick }) {
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+function App() {
+  function showAlert() {
+    alert("Button Clicked!");
+  }
+
+  return <Button handleClick={showAlert} />;
+}
+📌 Explanation:
+
+==> handleClick is passed from App to Button.
+==> When clicked, handleClick runs, triggering the alert.
+
+9) PropTypes (Validating Props)
+To ensure props have the correct data type, use PropTypes.
+
+import PropTypes from "prop-types";
+
+function UserProfile({ name, age }) {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>Age: {age}</p>
+    </div>
+  );
+}
+
+// Define PropTypes
+UserProfile.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+};
+📌 If an invalid type is passed, React will show a warning in the console.
+
+10) Best Practices for Using Props
+✅ Use descriptive prop names (e.g., userData instead of data).
+✅ Destructure props for cleaner code.
+✅ Use default props to prevent errors if a prop is missing.
+✅ Use PropTypes (Optional) to enforce prop types.

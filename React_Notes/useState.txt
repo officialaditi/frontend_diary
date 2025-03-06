@@ -1,0 +1,53 @@
+                         State:-
+
+>> useState hook allow us to track the state in functional component.
+>> Think of state as a component’s memory. 
+>> It stores data that can change over time, like a counter, user input, or a toggle button.
+
+📌 Example: Imagine a light switch
+
+--> State: ON or OFF
+--> When you press the switch, it changes state
+--> The UI updates based on the new state
+
+How State Works in React?
+1️⃣ Define State: Use useState to create a state variable
+2️⃣ Update State: Change it using setState (which triggers re-render)
+3️⃣ React Updates UI: The component updates automatically when state changes
+
+Example: Counter with State:-
+
+import { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0); // count = 0 initially
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  );
+}
+
+How It Works?
+>> useState(0) → Creates a state variable count with an initial value of 0
+>> setCount(count + 1) → Updates state when the button is clicked
+>> React re-renders the UI with the new count
+
+Key Takeaways
+✅ State stores data that changes over time
+✅ Updating state triggers a UI re-render
+✅ Use useState in functional components                     
+
+                                        Update the array of content using useState;
+
+>> Arrays are mutable in JavaScript, but when using React state, we should treat them as immutable.
+>> We should not update the array directly using methods like push or pop when modifying state.
+>> Instead, we should create a new array or copy the existing array, then use the setState function to update the state.
+
+                                        Update the object of content using useState;
+
+>> Objects are mutable in JavaScript, but when using React state, we should treat them as immutable.
+>> We should not update the object directly by modifying its properties.
+>> Instead, we should create a new object or copy the existing object, then use the setState function to update the state.

@@ -1,0 +1,59 @@
+
+                                             useEffect:-
+
+>> useEffect is a React Hook that lets you perform side effects in function components. 
+>> Side effects can include fetching data, manipulating the DOM, setting up subscriptions, or timers.
+
+Syntax:- 
+
+import { useEffect } from "react";
+
+useEffect(() => {
+  // Code to run (side effect)
+  return () => {
+    // Cleanup function (optional)
+  };
+}, [dependencies]);
+
+Key Concepts:-
+>> Runs after render: The effect runs after the component has rendered.
+>> Dependency array: Determines when the effect should run.
+>> Cleanup function (optional): Used to prevent memory leaks (e.g., removing event listeners, canceling API calls).
+
+Different use case:-
+
+1) Run on Every Render
+If you don’t provide a dependency array, the effect runs after every render.
+useEffect(() => {
+  console.log("This runs after every render!");
+});
+
+2) Run Only on Mount (Initial Render)
+An empty dependency array ([]) means the effect runs only once when the component mounts.
+useEffect(() => {
+  console.log("Component mounted!");
+}, []);
+
+3) Run When a Specific Value Changes
+Providing dependencies makes the effect run when those values change.
+useEffect(() => {
+  console.log(`Count changed to ${count}`);
+}, [count]); // Runs only when `count` changes
+
+4) Cleanup Function (Useful for Unmounting)
+Used to clean up things like event listeners, timers, or API subscriptions.
+useEffect(() => {
+  const interval = setInterval(() => {
+    console.log("Interval running");
+  }, 1000);
+
+  return () => {
+    clearInterval(interval); // Cleanup on unmount
+    console.log("Cleanup done");
+  };
+}, []);
+
+Best Practices
+✅ Always provide a cleanup function if an effect sets up subscriptions or timers.
+✅ Avoid unnecessary re-renders by optimizing the dependency array.
+✅ Keep effects minimal and focused on a single responsibility.

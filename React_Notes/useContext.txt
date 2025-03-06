@@ -1,0 +1,25 @@
+                                            useContext:-
+
+
+📌 What is Context in React?
+
+>> React Context is a way to share values (like themes, user authentication, language settings, etc.)
+   across multiple components without passing props manually at every level.
+
+>> Context is typically used for: 
+    --> Themes (dark mode, light mode)
+    --> Authentication (logged-in user data)
+    --> Global State Management (alternative to Redux/Zustand)
+    --> Language/Localization (i18n)   
+
+
+2️⃣ What is useContext?
+
+>> useContext is a hook that allows functional components to consume values from a React Context easily.
+
+>> Syntax:-
+                                const value = useContext(MyContext);
+                                
+   explanation:-
+   MyContext = its an context that we have created
+   useContext(MyContext) => return the current value of the context hold

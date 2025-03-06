@@ -1,0 +1,7 @@
+                                      React Portal
+
+>> A React Portal is a feature that allows you to render a component outside 
+   its parent DOM hierarchy while keeping it within the React tree                                     
+
+>> It helps when you need to render child components outside the main DOM hierarchy for styling or performance reasons,
+   such as modals, tooltips, or pop-ups.   

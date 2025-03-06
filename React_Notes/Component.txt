@@ -1,0 +1,95 @@
+                                      All About Components:-
+
+
+==> Components are the building blocks of any React application. 
+==> They allow developers to break the UI into independent, reusable pieces that can be managed separately.
+
+1) What Are Components?
+-> A component is a JavaScript function or class that returns a piece of UI. 
+-> Components help create a modular and maintainable codebase.
+-> example:-
+  function Greeting() {
+  return <h1>Hello, World!</h1>;
+  }
+==> This Greeting component returns an <h1> element and can be used multiple times throughout an application.
+
+2) Types of Components:-
+React has two main types of components:
+
+a) Functional Components (Recommended)
+-> These are JavaScript functions that return JSX.
+-> They can use hooks (useState, useEffect, etc.).
+-> They are simpler and easier to read.
+
+example:- 
+function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+Usage:
+<Welcome name="Alice" />
+
+b) Class Components (Older Approach)
+-> These use ES6 classes and extend React.Component.
+-> They have a render() method that returns JSX.
+-> They support lifecycle methods like componentDidMount, componentDidUpdate, etc.
+
+example:- 
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}!</h1>;
+  }
+}
+
+3) JSX (JavaScript XML) in Components.
+Components use JSX to define their UI. JSX looks like HTML but allows JavaScript expressions inside {}.
+example:- 
+function UserCard(props) {
+  return (
+    <div>
+      <h2>{props.name}</h2>
+      <p>{props.age} years old</p>
+    </div>
+  );
+}
+
+4) Component Lifecycle (For Class Components)
+Lifecycle methods help manage component behavior at different stages:
+>> Mounting → componentDidMount()
+>> Updating → componentDidUpdate()
+>> Unmounting → componentWillUnmount()
+
+With hooks (useEffect), lifecycle logic can be handled in functional components.
+
+example:- 
+import { useEffect } from 'react';
+
+function Example() {
+  useEffect(() => {
+    console.log("Component Mounted");
+
+    return () => {
+      console.log("Component Unmounted");
+    };
+  }, []);
+
+  return <p>Check the console!</p>;
+}
+
+5) Handling Events in Components
+React events are similar to regular DOM events but use camelCase.
+example:- 
+function ClickMe() {
+  function handleClick() {
+    alert("Button Clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+6) Best Practices for Components:-
+
+✅ Keep components small and focused on one task
+✅ Use functional components with hooks
+✅ Use meaningful names for components and props
+✅ Avoid unnecessary state changes to improve performance
+✅ Use useMemo & useCallback for optimization

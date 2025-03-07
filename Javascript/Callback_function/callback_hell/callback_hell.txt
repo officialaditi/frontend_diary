@@ -1,0 +1,45 @@
+                                  callback hell / Pyramid of Doom
+
+>> Callback Hell (also called Pyramid of Doom) occurs when you have multiple nested callbacks, 
+   often leading to code that is hard to read, maintain, and debug.                                  
+
+>> It typically happens when you have several asynchronous operations (like reading files, fetching data, etc.)
+   that depend on each other. This leads to deeply nested callbacks.   
+
+example:- 
+
+Imagine you have three async tasks (for example, making API calls or reading files), and each task depends on
+the previous one.   
+
+function task1(callback) {
+  setTimeout(() => {
+    console.log("Task 1 completed");
+    callback();
+  }, 1000);
+}
+
+function task2(callback) {
+  setTimeout(() => {
+    console.log("Task 2 completed");
+    callback();
+  }, 1000);
+}
+
+function task3(callback) {
+  setTimeout(() => {
+    console.log("Task 3 completed");
+    callback();
+  }, 1000);
+}
+
+task1(() => {
+  task2(() => {
+    task3(() => {
+      console.log("All tasks completed");
+    });
+  });
+});
+
+Why is this Callback Hell?
+>> The callbacks are nested inside each other (creating indentation).
+>> As the number of tasks increases, the code becomes difficult to manage and read.

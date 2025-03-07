@@ -1,0 +1,24 @@
+                                  Callback Function
+
+>> Callback is an function that is passed as an argument to another function and its executed
+   after the completion of some operation, typically asynchronous                                   
+
+>> Can a callback function return a value?
+Yes! A callback function can return a value, and the higher-order function 
+(the one calling the callback) can handle that returned value.   
+example:- 
+function add(a, b) {
+  return a + b;  // The callback returns a value
+}
+
+function calculator(a, b, callback) {
+  return callback(a, b); // The result of callback is returned
+}
+
+let result = calculator(5, 3, add); 
+
+console.log(result); // Output: 8
+
+✔ The add function returns a + b.
+✔ calculator calls add and returns its result.
+✔ We store the result in a variable result and log it.

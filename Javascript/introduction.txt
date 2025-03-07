@@ -46,3 +46,55 @@ callbacks, promises, and async/await come into play.
 
 🔰 Async/Await: A syntax introduced in ES8 to make working with Promises easier and more 
    readable  
+
+
+                                       Recap explanation:-
+
+ let have an recap of what and how sychronous programming works
+
+consoling the 1,2,3 line by line as we know js work synchronously means the code get executed
+line by line after each line
+
+// console.log('one');
+// console.log('two');
+// console.log('three');
+
+ yes we got the output like:- one, two, three synchoronously line by line
+
+what about asynchronous programming then?? so like here the agar humare code 5 line ka and usme
+1 line sirf console.log ahi, 2 line bhi same console hai, 3 like ek api call karke data la rahi 
+hai toh woh 2 sec or 5 sec ka time le rahi hai which is an delay because of which hamara dusra
+code bhi run nhi honga kounsa line 4 and 5 if we do this in synchronous programming, toh yaha pe
+hun asynchronous programming karenge means api ka code side mai run honga and usake neche ke code 
+line number 4,5 ko bhi run karenge taki woh hamara code stoop na ho and website mai delay na ho woh 
+kesa karenge hum??
+
+lets see an example with setTimeout(); 
+setTimeout => execute the other function or an function when the time we have decided is expire
+
+ function hello () {
+     console.log('Saying Hello...')
+ }
+
+ let say we want to execute an function hello after 2 sec so we will give it to setTimeout();
+ setTimeout(hello, 2000);  // we give time in milliseconds => 2s = 2000 miliseconds
+
+so now the function will run after the 2 second
+
+we can create an function directly inside the setTimeout using the arrow function.
+
+
+console.log('hello 1');
+console.log('hello 2');
+console.log('hello 3');
+
+setTimeout(() => {
+    console.log('Hey Aditi👋')
+}, 4000);
+
+console.log('hello 4');
+console.log('hello 5');
+
+so now here our code doesn't wait for the setTimout() to complete then , to print hello4, 
+and hello5 but rather than waiting he print the other console and after the 4sec he prints 
+the 'Hey Aditi'

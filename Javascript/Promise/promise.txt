@@ -1,0 +1,49 @@
+                                  Promise
+
+>> A Promise is an object representing the eventual completion (or failure) of an 
+   asynchronous operation.
+
+>> A Promise is an object representing the eventual completion (or failure) of an 
+   asynchronous operation.
+
+   Promise States:-
+
+   A promise can be in one of three states:
+   --> Pending: The promise is still in progress (not yet resolved or rejected).
+   --> Resolved (Fulfilled): The promise has been successfully completed (the asynchronous 
+       operation succeeded).
+   --> Rejected: The promise has failed (the asynchronous operation encountered an error).
+
+
+Basic Structure of a Promise: making of promise
+
+an promise is created using [Promise] constructor and typically accept two function with 2 arugments
+1) resolve
+2) reject
+
+const myPromise = new Promise((resolve, reject) => {
+
+  // Asynchronous operation (e.g., setTimeout, fetching data)
+
+  let success = true; // simulate success or failure
+  
+  if (success) {
+    resolve("Task completed successfully!"); // Resolve the promise
+  } else {
+    reject("Task failed!"); // Reject the promise
+  }
+});
+
+using of promise:-
+
+Once a promise is created, we can use .then() for the resolved state and .catch() for the 
+rejected state.
+
+myPromise
+  .then((message) => {
+    console.log(message); // If the promise resolves
+  })
+  .catch((error) => {
+    console.log(error); // If the promise is rejected
+  });
+

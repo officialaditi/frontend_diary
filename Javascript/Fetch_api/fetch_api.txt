@@ -1,0 +1,17 @@
+API :- Application Programming Interface
+
+fetch api :-  -> The Fetch API is a modern way to make HTTP requests in JavaScript.
+              -> It allows you to fetch resources from a server (APIs, files, etc.) using promises, making it 
+                 easier to handle asynchronous requests.
+              -> fetch() method is used to fetch the resource (req, res) resource data
+
+
+syntax:-
+
+fetch(url, options)
+  .then(response => response.json()) // Convert response to JSON
+  .then(data => console.log(data)) // Handle the data
+  .catch(error => console.error('Error:', error)); // Handle errors
+
+url: The API endpoint or resource you want to fetch.
+options: (Optional) An object containing HTTP method, headers, body, etc.

@@ -1,0 +1,34 @@
+                                    Async - Await
+
+=> Async:-                                     
+   1) This keyword is used to define a function that will always return a Promise.
+   2) Inside an async function, you can use await to pause the execution until the Promise is resolved.
+
+=> Await:- 
+   1) This keyword is used inside async functions to pause the execution of the function until the Promise resolves (or rejects).
+   2) It helps make asynchronous code look and behave more like synchronous code, which is easier to read and maintain.    
+
+   
+// A simple function to simulate fetching data from an API
+
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const data = "Data fetched successfully!";
+      resolve(data);  // Resolving the promise after 2 seconds
+    }, 2000);
+  });
+}
+
+// Async function that uses await to pause execution until fetchData completes
+async function getData() {
+  console.log("Fetching data...");
+  
+  // Await the fetchData function to complete
+  const result = await fetchData();
+  
+  // Once the promise resolves, log the result
+  console.log(result);  // This will print after 2 seconds
+}
+
+getData();  // Calling the async function

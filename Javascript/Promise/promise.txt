@@ -18,8 +18,10 @@
 Basic Structure of a Promise: making of promise
 
 an promise is created using [Promise] constructor and typically accept two function with 2 arugments
-1) resolve
-2) reject
+1) resolve => it an function only javascript created.
+2) reject  => it an function that javascript created.
+
+=> reject and resolve are the callback handle by javascript
 
 const myPromise = new Promise((resolve, reject) => {
 
@@ -47,3 +49,32 @@ myPromise
     console.log(error); // If the promise is rejected
   });
 
+Chaining Promises:-
+
+You can chain multiple .then() methods to process the result step by step.
+
+new Promise((resolve) => {
+  setTimeout(() => resolve(10), 1000);
+})
+  .then((num) => {
+    console.log(num); // 10
+    return num * 2;
+  })
+  .then((num) => {
+    console.log(num); // 20
+    return num * 3;
+  })
+  .then((num) => {
+    console.log(num); // 60
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+
+🔰 Mini Challenge for You!
+Can you create a Promise that simulates downloading a file?
+
+The Promise should take 3 seconds to complete.
+If success is true, resolve with "📂 File downloaded successfully!".
+If success is false, reject with "❌ Download failed!".
+Handle it with .then() and .catch().
